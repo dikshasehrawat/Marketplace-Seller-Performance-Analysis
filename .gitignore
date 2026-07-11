@@ -18,3 +18,4 @@ Thumbs.db
 # Power BI temp files
 *.pbix.bak
 ~$*.pbix
+Dataset/powerbi_exports/
