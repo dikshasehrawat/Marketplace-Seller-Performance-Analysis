@@ -1,5 +1,6 @@
 # Raw data (large files, reproducible from Kaggle — see README for source link)
 Dataset/*.csv
+Dataset/*.db
 
 # Python
 __pycache__/
