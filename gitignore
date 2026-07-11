@@ -1,0 +1,19 @@
+# Raw data (large files, reproducible from Kaggle — see README for source link)
+Dataset/*.csv
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+venv/
+env/
+.env
+
+# OS/editor junk
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Power BI temp files
+*.pbix.bak
+~$*.pbix
