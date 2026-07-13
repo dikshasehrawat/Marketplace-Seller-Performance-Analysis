@@ -119,9 +119,6 @@ documented in `Python/eda.ipynb` and `SQL/data_cleaning.sql`.
   `ROW_NUMBER()` to keep only the most recent review per order.
 - Identified that ~3% of orders never completed their lifecycle (canceled/
   unavailable), and excluded them from delivery-time calculations accordingly.
-- Explored and deduplicated the geolocation table (1,000,163 rows → 19,015 unique
-  zip codes) during initial data quality checks; not ultimately used in the final
-  dashboard after regional analysis was built on state-level data instead.
 
 ---
 
