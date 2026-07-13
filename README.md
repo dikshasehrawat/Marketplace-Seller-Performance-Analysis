@@ -13,9 +13,6 @@ actionable business recommendations.
 
 ## Dashboard Preview
 
-*(Add screenshots of each of your 4 Power BI pages here once exported — see
-"Adding Screenshots" section below)*
-
 | Overview | Seller Performance & Risk |
 |---|---|
 | ![Overview](./Images/overview.png) | ![Seller Performance](./Images/seller_performance.png) |
