@@ -26,7 +26,7 @@ actionable business recommendations.
 ## Tech Stack
 
 - **Python** (pandas, seaborn, matplotlib) — data loading, cleaning, EDA
-- **SQL** (SQLite, via Python/SQLAlchemy) — table exploration, joins, cleaning logic
+- **SQL** — table exploration, joins, cleaning logic
 - **Power BI Desktop** — 4-page interactive dashboard with DAX measures
 - **Jupyter Notebooks** — full analysis walkthrough
 
@@ -70,8 +70,11 @@ repo lightweight). To reproduce:
 
 ## Key Findings
 
+**Note on currency**: all monetary figures are in Brazilian Real (R$), the native
+currency of the dataset.
+
 **Seller Performance**
-- Top seller generated ~$229K in revenue across 1,132 orders; strategies vary — some
+- Top seller generated ~R$229K in revenue across 1,132 orders; strategies vary — some
   sellers drive revenue through volume, others through higher-ticket items with fewer orders.
 - One seller showed a **92% late-delivery rate** across 25 real orders — a genuine
   outlier flagged for audit.
@@ -82,21 +85,23 @@ repo lightweight). To reproduce:
 - Average review score drops sharply with delivery delay: **4.21 (on-time) → 2.68
   (1-7 days late) → 1.70 (8+ days late)**, confirmed by a -0.23 correlation between
   delay and review score.
-- The lowest-rated categories (`security_and_services`, `diapers_and_hygiene`) show
-  delivery times close to the dataset average — their low scores are driven by
-  product/category factors, not logistics.
+- The lowest-rated categories (`security_and_services`: 2.50 avg review,
+  `diapers_and_hygiene`: 3.38) are not driven by delay — both are delivered **early**
+  on average (-17.0 and -11.4 days respectively, vs. a -12.1 day dataset average),
+  yet still score poorly. This rules out logistics as the cause and points to
+  product/category-specific factors instead.
 
 **Revenue & Cost**
 - `christmas_supplies` and `signaling_and_security` carry the highest freight cost
   relative to revenue (~30-37%), an efficiency concern beyond just raw margin.
 - Credit card is the dominant payment method (73.8%), followed by boleto (19.4%),
   a Brazil-specific bank-slip payment method.
-- Average order value rises steadily with installment count (₹91 at 1 installment
-  to ₹292 at 10), reflecting natural behavior of splitting larger purchases.
+- Average order value rises steadily with installment count (R$91 at 1 installment
+  to R$292 at 10), reflecting natural behavior of splitting larger purchases.
 
 **Regional**
-- São Paulo (SP) generates ~$5.2M in revenue — over 3x the next-highest state
-  (Rio de Janeiro, ~$1.8M).
+- São Paulo (SP) generates ~R$5.2M in revenue — over 3x the next-highest state
+  (Rio de Janeiro, ~R$1.8M).
 - Northeast states (AL, MA, SE, CE, PI) show the worst late-delivery rates
   (15-22%), likely reflecting distance from the São Paulo-centered seller base.
   Notably, Rio de Janeiro — a top-2 revenue state — also shows an above-average
@@ -109,13 +114,14 @@ documented in `Python/eda.ipynb` and `SQL/data_cleaning.sql`.
 
 ## Data Cleaning Highlights
 
-- Deduplicated the geolocation table from 1,000,163 rows to 19,015 unique zip
-  codes by averaging repeated GPS readings.
 - Caught and fixed a join bug where duplicate review rows (547 orders had 2-3
   reviews each) were inflating the master table by ~0.6% — resolved using
   `ROW_NUMBER()` to keep only the most recent review per order.
 - Identified that ~3% of orders never completed their lifecycle (canceled/
   unavailable), and excluded them from delivery-time calculations accordingly.
+- Explored and deduplicated the geolocation table (1,000,163 rows → 19,015 unique
+  zip codes) during initial data quality checks; not ultimately used in the final
+  dashboard after regional analysis was built on state-level data instead.
 
 ---
 
