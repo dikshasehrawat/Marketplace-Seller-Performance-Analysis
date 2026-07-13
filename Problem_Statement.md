@@ -11,7 +11,7 @@
 Olist is an online marketplace connecting small Brazilian retailers (sellers) to major
 e-commerce platforms. Every order flows through seller → logistics → customer, followed
 by a post-delivery review. Marketplace leadership needs visibility across the full order
-lifecycle — not just "which sellers are bad," but how seller behavior, delivery
+lifecycle and not just "which sellers are bad," but how seller behavior, delivery
 efficiency, product category, payment method, and region interact to drive (or hurt)
 overall marketplace performance.
 
@@ -19,7 +19,7 @@ overall marketplace performance.
 
 Olist's leadership lacks a unified view of marketplace performance. Seller quality,
 delivery delays, customer satisfaction, and regional differences are currently
-understood in isolation, if at all — making it hard to answer basic operational
+understood in isolation, making it hard to answer basic operational
 questions: which sellers and regions drive the business, where delays actually come
 from, whether delays are costing customer satisfaction, and which product categories
 carry disproportionate logistics cost relative to the revenue they generate.
